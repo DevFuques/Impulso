@@ -1,2 +1,2 @@
-# impulso
-Um sistema de gestão de academias
+# Impulso
+Impulso: onde a tecnologia encontra a performance.
