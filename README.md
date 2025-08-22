@@ -6,7 +6,7 @@ O projeto foi criado para praticar conceitos de banco de dados, CRUD básico e i
 
 ---
 
-## ✨ Funcionalidades
+## ✨ Funcionalidades Gerais
 - 🏗️ Criação automática do banco e tabela caso não existam
 - 👤 Cadastro de novas pessoas e usuários
 - 📊 Cálculo da média de idade e peso cadastrados
