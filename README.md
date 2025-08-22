@@ -18,6 +18,7 @@ O projeto foi criado para praticar conceitos de banco de dados, CRUD básico e i
 - [MySQL](https://www.mysql.com/)
 - [mysql-connector-python](https://pypi.org/project/mysql-connector-python/)
 - [PyMySQL](https://pypi.org/project/PyMySQL/)
+- [hashlib](https://docs.python.org/pt-br/3.13/library/hashlib.html)
   
 ---
 ## 📚 Contexto do projeto
