@@ -16,8 +16,8 @@ except ImportError:
 def conectar():
     return mysql.connect(
         host="localhost",
-        user="root",            # Seu User
-        password="senha",       # Sua Senha
+        user="root",        # substitua pelo seu usuário do MySQL
+        password="senha",   # substitua pela sua senha do MySQL   
         database="academia"
     )
 
@@ -25,14 +25,13 @@ def conectar():
 def inicializa_banco():
     conexao = mysql.connect(
         host="localhost",
-        user="root",        # Seu User
-        password="senha"    # Sua Senha
+        user="root",     # substitua pelo seu usuário do MySQL
+        password="senha" # substitua pela sua senha do MySQL
     )
     cursor = conexao.cursor()
     cursor.execute("create database if not exists academia")
     cursor.execute("USE academia")
 
-    # tabela pessoas
     cursor.execute("""
         create table if not exists pessoas (
             id int auto_increment primary key, 
@@ -42,7 +41,6 @@ def inicializa_banco():
         )
     """)
 
-    # tabela usuarios
     cursor.execute("""
         create table if not exists usuarios(
             id int auto_increment primary key,
@@ -148,8 +146,8 @@ def mostrar_medias():
     cursor.close()
     conexao.close()
     
-# Mostrar tabela
-def exibir_tabela():
+# Mostrar tabela pessoas
+def exibir_tab_pes():
     conexao = conectar()
     cursor = conexao.cursor()
     
@@ -162,12 +160,31 @@ def exibir_tabela():
             print("---" * 10)
             print(f"| ID: {linha[0]} | Nome: {linha[1]} | Idade: {linha[2]} | Peso: {linha[3]} |")
     else:
-        print("\nNenhuma pessoa foi cadastrada!")
+        print("\n❌ Nenhuma pessoa foi cadastrada!")
     
     cursor.close()
     conexao.close()
     
-# Deletar pessoas da tabela
+# Mostrar tabela usuarios
+def exibir_tab_user():
+    conexao = conectar()
+    cursor = conexao.cursor()
+    
+    cursor.execute("select * from pessoas")
+    linhas = cursor.fetchall()
+    
+    if linhas:
+        print("\n=== USUÁRIOS CADASTRADOS ===")
+        for linha in linhas:
+            print("---" * 10)
+            print(f"| ID: {linha[0]} | Usuário: {linha[1]} | Tipo: {linha[3]} |")
+    else:
+        print("\n❌ Nenhum usuário foi cadastrado!")
+    
+    cursor.close()
+    conexao.close()
+    
+# Deletar pessoas da tabela pessoas
 def deletar_cadastro():
     conexao = conectar()
     cursor = conexao.cursor()
@@ -186,6 +203,26 @@ def deletar_cadastro():
     cursor.close()
     conexao.close()
 
+# Deletar usuarios da tabela usuarios
+def deletar_usuario():
+    conexao = conectar()
+    cursor = conexao.cursor()
+    
+    id_usuario = int(input("Digite o ID do usuario a ser deletada: "))
+    sql = "delete from pessoas where id = %s"
+    
+    cursor.execute(sql, (id_usuario,))
+    conexao.commit()
+    
+    if cursor.rowcount > 0:
+        print("\n✅ USUÁRIO DELETADO")
+    else:
+        print("\n❌ ID não encontrado!")
+    
+    cursor.close()
+    conexao.close()
+
+
 # Menu principal
 def menu(tipo_usuario):
     while True:
@@ -195,9 +232,11 @@ def menu(tipo_usuario):
         print("3 - Mostrar médias(idade e peso)")
         print("4 - Deletar cadastro")
 
-        # só admin pode criar novos usuários
+        # só admin pode criar, exibir ou deletar novos usuários
         if tipo_usuario == "admin":
             print("5 - Cadastrar novo usuário")
+            print("6 - Exibir usuários cadastrados")
+            print("7 - Deletar usuário")
 
         print("0 - Sair")
         
@@ -206,15 +245,19 @@ def menu(tipo_usuario):
         if opcao == "1":
             cadastrar_pessoas()
         elif opcao == "2":
-            exibir_tabela()
+            exibir_tab_pes()
         elif opcao == "3":
             mostrar_medias()
         elif opcao == "4":
             deletar_cadastro()
         elif opcao == "5" and tipo_usuario == "admin":
             cadastrar_usuario()
+        elif opcao == "6" and tipo_usuario == "admin":
+            exibir_tab_user()
+        elif opcao == "7" and tipo_usuario == "admin":
+            deletar_usuario()
         elif opcao == "0":
-            print("Saindo...")
+            print("Obrigado por usar o sistema IMPULSO, saindo...")
             break
         else:
             print("\n❌ Opção inválida, tente novamente!")
