@@ -1,3 +1,9 @@
+import hashlib
+
+# Função para gerar hash da senha
+def hash_senha(senha):
+    return hashlib.sha256(senha.encode()).hexdigest()
+
 # Tenta usar mysql-connector, caso se não tenha tenta o PyMySQL
 try:
     import mysql.connector as mysql
@@ -10,21 +16,23 @@ except ImportError:
 def conectar():
     return mysql.connect(
         host="localhost",
-        user="root",        
-        password="senha",   
+        user="fernando",        
+        password="nandocafu",   
         database="academia"
     )
 
-# Cria banco e tabela
+# Cria banco e tabelas
 def inicializa_banco():
     conexao = mysql.connect(
         host="localhost",
-        user="root",
-        password="senha"
+        user="fernando",
+        password="nandocafu"
     )
     cursor = conexao.cursor()
     cursor.execute("create database if not exists academia")
     cursor.execute("USE academia")
+
+    # tabela pessoas
     cursor.execute("""
         create table if not exists pessoas (
             id int auto_increment primary key, 
@@ -33,10 +41,79 @@ def inicializa_banco():
             peso float
         )
     """)
+
+    # tabela usuarios
+    cursor.execute("""
+        create table if not exists usuarios(
+            id int auto_increment primary key,
+            usuario varchar(50) unique not null,
+            senha varchar(64) not null,
+            tipo varchar(20) not null default 'usuario'
+        )
+    """)
+    
+    # cria admin padrão se não existir
+    cursor.execute("select count(*) from usuarios")
+    if cursor.fetchone()[0] == 0:
+        senha_hash = hash_senha("admin")
+        cursor.execute(
+            "insert into usuarios (usuario, senha, tipo) values (%s, %s, %s)",
+            ("admin", senha_hash, "admin")
+        )
+        print("⭐ Usuário admin criado (usuario: admin | senha: admin)")
+
     conexao.commit()
-    print("✅ BANCO/TABELA CRIADOS")
+    print("✅ BANCO/TABELAS CRIADOS")
     cursor.close()
     conexao.close()
+    
+# Cadastrar novo usuário
+def cadastrar_usuario():
+    conexao = conectar()
+    cursor = conexao.cursor()
+    
+    usuario = input("Digite o nome de usuário: ")
+    senha = input("Digite a senha: ")
+    senha_hash = hash_senha(senha)
+
+    tipo = input("Tipo de usuário (admin/usuario): ").lower()
+    if tipo not in ["admin", "usuario"]:
+        tipo = "usuario"  # se não digitar certo, vira usuário comum
+
+    try:
+        cursor.execute("insert into usuarios (usuario, senha, tipo) values (%s, %s, %s)", 
+                       (usuario, senha_hash, tipo))
+        conexao.commit()
+        print(f"✅ Usuário {usuario} cadastrado como {tipo}!")
+    except mysql.Error as e:
+        print(f"❌ Erro: {e}")
+
+    cursor.close()
+    conexao.close()
+
+    
+# Login
+def login():
+    conexao = conectar()
+    cursor = conexao.cursor()
+    
+    usuario = input("Usuário: ")
+    senha = input("Senha: ")
+    senha_hash = hash_senha(senha)
+
+    cursor.execute("select usuario, tipo from usuarios where usuario=%s and senha=%s", (usuario, senha_hash))
+    resultado = cursor.fetchone()
+
+    cursor.close()
+    conexao.close()
+
+    if resultado:
+        print(f"\n✅ Olá, {resultado[0]}! (Tipo: {resultado[1]})")
+        return resultado[1] 
+    else:
+        print("\n❌ Usuário ou senha inválidos!")
+        return None
+
 
 # Inserir pessoa
 def cadastrar_pessoas():
@@ -110,16 +187,19 @@ def deletar_cadastro():
     conexao.close()
 
 # Menu principal
-def menu():
-    inicializa_banco()
-    
+def menu(tipo_usuario):
     while True:
         print("\n=== MENU ===")
         print("1 - Cadastrar pessoa")
         print("2 - Exibir pessoas cadastradas")
-        print("3 - Mostrar médias")
+        print("3 - Mostrar médias(idade e peso)")
         print("4 - Deletar cadastro")
-        print("5 - Sair")
+
+        # só admin pode criar novos usuários
+        if tipo_usuario == "admin":
+            print("5 - Cadastrar novo usuário")
+
+        print("0 - Sair")
         
         opcao = input("Escolha: ")
         
@@ -131,10 +211,24 @@ def menu():
             mostrar_medias()
         elif opcao == "4":
             deletar_cadastro()
-        elif opcao == "5":
+        elif opcao == "5" and tipo_usuario == "admin":
+            cadastrar_usuario()
+        elif opcao == "0":
             print("Saindo...")
             break
         else:
             print("\n❌ Opção inválida, tente novamente!")
 
-menu()
+
+# Programa principal
+def main():
+    inicializa_banco()
+    print("\n=== IMPULSO ===")
+    
+    tipo_usuario = login()
+    if tipo_usuario: 
+        menu(tipo_usuario)
+    else:
+        print("\nEncerrando o programa...")
+
+main()
