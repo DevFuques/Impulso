@@ -53,7 +53,7 @@ Inspirado pelo desafio e com um pouco de pesquisa, criei este programa adicionan
 - usuarios
   - id (int, auto_increment, PK)
   - usuario (varchar, único)
-  - senha (varchar, hash SHA-256)
+  - senha (varchar)
   - tipo (admin/usuario)
 
 - pessoas
