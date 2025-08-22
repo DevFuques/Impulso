@@ -20,7 +20,7 @@ def conectar():
     return mysql.connect(
         host="localhost",
         user="root",        # substitua pelo seu usuário do MySQL
-        password="cimatec",   # substitua pela sua senha do MySQL   
+        password="senha",   # substitua pela sua senha do MySQL   
         database="academia"
     )
 
@@ -29,7 +29,7 @@ def inicializa_banco():
     conexao = mysql.connect(
         host="localhost",
         user="root",     # substitua pelo seu usuário do MySQL
-        password="cimatec" # substitua pela sua senha do MySQL
+        password="senha" # substitua pela sua senha do MySQL
     )
     cursor = conexao.cursor()
     cursor.execute("create database if not exists academia")
