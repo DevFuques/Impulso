@@ -58,7 +58,9 @@ python3 -m venv venv
 pip install -r requirements.txt
 ```
 ### 5️⃣ Executar o software
-
+```bash
+python3 app.py
+```
 ---
 
 ## 📸 Demonstração
