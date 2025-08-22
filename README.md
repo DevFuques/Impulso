@@ -87,7 +87,12 @@ python3 -m venv venv
 ```bash
 pip install -r requirements.txt
 ```
-### 5️⃣ Executar o software
+### 5️⃣ Configurando o MySQL
+Troque o user e a password do código para os que você usa no seu MySQL
+
+<img width="521" height="307" alt="image" src="https://github.com/user-attachments/assets/353e7297-0f25-4562-a16e-2905f66e37b1" />
+
+### 6️⃣ Executar o software
 ```bash
 python3 app.py
 ```
