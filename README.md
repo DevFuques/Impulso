@@ -1,4 +1,6 @@
-# 🚀 Impulso - *Onde a tecnologia encontra a performance.*
+<img width="1536" height="1024" alt="impulso" src="https://github.com/user-attachments/assets/702576fe-00bb-495f-94bd-cefb9d774214" />
+
+# *Onde a tecnologia encontra a performance.*
 Este é um sistema simples de **gestão de academias** utilizando Python + MySQL.
 O projeto foi criado para praticar conceitos de banco de dados, CRUD básico e integração do Python com diferentes drivers MySQL.
 
