@@ -10,7 +10,7 @@ O projeto foi criado para praticar conceitos de banco de dados, CRUD básico e i
 - 🏗️ Criação automática do banco e tabela caso não existam
 - 👤 Cadastro de novas pessoas e usuários
 - 📊 Cálculo da média de idade e peso cadastrados
-- 📋 Exibição de todas as pessoas registradas
+- 📋 Exibição de todas as pessoas e usuários registradas
 - 🔄 Compatibilidade com mysql-connector-python e PyMySQL 
 
 ---
