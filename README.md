@@ -32,6 +32,35 @@ Inspirado pelo desafio e com um pouco de pesquisa, criei este programa adicionan
 
 ---
 
+## 📌 Funcionalidades
+
+- Login com senha hash SHA-256 (não salva senhas em texto puro 🚫).
+- Usuários com dois tipos de permissões:
+  - Admin → pode cadastrar novos usuários, além de todas as funções normais.
+  - Usuário comum → pode apenas gerenciar pessoas.
+- Cadastro de pessoas (nome, idade, peso).
+- Exibição de todas as pessoas cadastradas.
+- Cálculo de médias de idade e peso.
+- Exclusão de cadastros.
+
+---
+
+### 🖥️ Estrutura do banco
+
+- usuarios
+  - id (int, auto_increment, PK)
+  - usuario (varchar, único)
+  - senha (varchar, hash SHA-256)
+  - tipo (admin/usuario)
+
+- pessoas
+  - id (int, auto_increment, PK)
+  - nome (varchar)
+  - idade (int)
+  - peso (float)
+
+---
+
 ## 🚀 Como executar
 
 ### 1️⃣ Clonar o repositório
