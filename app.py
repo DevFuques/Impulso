@@ -7,13 +7,21 @@ os.system('cls' if os.name == 'nt' else 'clear')
 def hash_senha(senha):
     return hashlib.sha256(senha.encode()).hexdigest()
 
-# Tenta usar mysql-connector, caso se não tenha tenta o PyMySQL
+# Checagem de bibliotecas MySQL
 try:
+    # Tenta usar mysql-connector, caso se não tenha tenta o PyMySQL
     import mysql.connector as mysql
     print("✅ Usando mysql-connector-python")
 except ImportError:
-    import pymysql as mysql
-    print("✅ Usando PyMySQL")
+    try:
+        import pymysql as mysql
+        print("✅ Usando PyMySQL")
+    except ImportError:
+        print("❌ Nenhuma biblioteca MySQL encontrada!")
+        print("👉 Execute o comando abaixo para instalar todas as dependências:")
+        print("   pip install -r requirements.txt")
+        # Encerra o programa, pois não dá pra continuar sem o MySQL
+        exit(1) 
 
 # Função de conexão
 def conectar():
