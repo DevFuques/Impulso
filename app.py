@@ -123,7 +123,6 @@ def login():
         print("\n❌ Usuário ou senha inválidos!")
         return None
 
-
 # Inserir pessoa
 def cadastrar_pessoas():
     conexao = conectar()
@@ -233,7 +232,6 @@ def deletar_usuario():
     cursor.close()
     conexao.close()
 
-
 # Menu principal
 def menu(tipo_usuario):
     while True:
@@ -272,7 +270,6 @@ def menu(tipo_usuario):
             break
         else:
             print("\n❌ Opção inválida, tente novamente!")
-
 
 # Programa principal
 def main():
