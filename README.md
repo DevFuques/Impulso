@@ -64,6 +64,42 @@ Inspirado pelo desafio e com um pouco de pesquisa, criei este programa adicionan
 
 ---
 
+## ⚙️ Pré-requisitos
+
+Antes de executar o sistema, verifique se você possui o Python 3.10 ou superior instalado na sua máquina.
+
+### 🔍 Como verificar a versão do Python
+
+No terminal/cmd, digite:
+```bash
+python --version
+```
+ou (em algumas distribuições Linux):
+```bash
+python3 --version
+```
+Se o resultado mostrar algo como:
+```nginx
+Python 3.10.12
+```
+✅ Você já está pronto para continuar.
+
+### 🐍 Instalando o Python
+
+Caso não tenha o Python instalado, siga o guia oficial de acordo com o seu sistema operacional:
+
+- Windows
+  - Baixe o instalador no site oficial:
+    👉 https://www.python.org/downloads/windows/
+  - Durante a instalação, marque a opção "Add Python to PATH".
+- Linux (Debian/Ubuntu)
+```bash
+sudo apt update
+sudo apt install python3 python3-pip -y
+```
+
+---
+
 ## ⚙️ Como executar
 
 ### 1️⃣ Clonar o repositório
