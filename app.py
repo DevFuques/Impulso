@@ -99,8 +99,7 @@ def cadastrar_usuario():
 
     cursor.close()
     conexao.close()
-
-    
+ 
 # Login
 def login():
     conexao = conectar()
