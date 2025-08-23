@@ -1,6 +1,6 @@
-<img width="1536" height="1024" alt="impulso" src="https://github.com/user-attachments/assets/702576fe-00bb-495f-94bd-cefb9d774214" />
+<img width="720" height="300" alt="impulsoBanner" src="https://github.com/user-attachments/assets/90e6dd32-7ae6-4824-a725-c58fae62e5d8" />
 
-# *Onde a tecnologia encontra a performance.*
+# *Imsulsionando sua gestão*
 Este é um sistema simples de **gestão** utilizando Python + MySQL.
 O projeto foi criado para praticar conceitos de banco de dados, CRUD básico e integração do Python com diferentes drivers MySQL.
 
