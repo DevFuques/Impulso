@@ -36,7 +36,7 @@ Inspirado pelo desafio e com um pouco de pesquisa, criei este programa adicionan
 
 ---
 
-## 📌 Funcionalidades
+## 📌 Especificações
 
 - Login com senha hash SHA-256 (não salva senhas em texto puro 🚫).
 - Usuários com dois tipos de permissões:
@@ -45,7 +45,8 @@ Inspirado pelo desafio e com um pouco de pesquisa, criei este programa adicionan
 - Cadastro de pessoas (nome, idade, peso).
 - Exibição de todas as pessoas cadastradas.
 - Cálculo de médias de idade e peso.
-- Exclusão de cadastros.
+- CRUD de cadastros.
+- CRUD de usuários.
 
 ---
 
@@ -98,6 +99,10 @@ Troque o user e a password do código para os que você usa no seu MySQL
 ### 6️⃣ Executar o software
 ```bash
 python3 app.py
+```
+Ou
+```bash
+python app.py
 ```
 ---
 
