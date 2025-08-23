@@ -1,4 +1,6 @@
-<img width="720" height="300" alt="impulsoBanner" src="https://github.com/user-attachments/assets/90e6dd32-7ae6-4824-a725-c58fae62e5d8" />
+<p align= "center">
+  <img width="920" height="300" alt="impulsoBannerMaior" src="https://github.com/user-attachments/assets/d3385862-5cce-4adb-9fe6-6fdfca8b4ed7" />
+</p>
 
 # *Imsulsionando sua gestão*
 Este é um sistema simples de **gestão** utilizando Python + MySQL.
@@ -66,7 +68,7 @@ Inspirado pelo desafio e com um pouco de pesquisa, criei este programa adicionan
 
 ---
 
-## 🚀 Como executar
+## ⚙️ Como executar
 
 ### 1️⃣ Clonar o repositório
 ```bash
