@@ -148,7 +148,9 @@ python app.py
 ---
 
 ## 📸 Demonstração
-
+<p align= "center">
+  <img width="329" height="330" alt="image" src="https://github.com/user-attachments/assets/aa625868-057c-4348-887b-eed7741cf33d" />  
+</p>
 
 ---
 
