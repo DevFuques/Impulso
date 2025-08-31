@@ -3,29 +3,32 @@
 </p>
 
 # Impulso — *Impulsionando sua gestão*
-Um sistema simples de **gestão** desenvolvido em **Python + MySQL**, criado para praticar conceitos de banco de dados, CRUD e integração com diferentes drivers MySQL.  
+Um sistema de **gestão com interface gráfica (Tkinter)** integrado ao **MySQL**.  
+Criado para praticar conceitos de banco de dados, CRUD, autenticação segura com hash SHA-256 e interface desktop moderna em Python.  
 
 ---
 
 ## ✨ Funcionalidades
 - 🏗️ Criação automática do banco e tabelas  
-- 👤 Cadastro de usuários e pessoas  
+- 👤 Cadastro de usuários (admin/usuário) e pessoas  
 - 🔑 Login seguro com hash SHA-256  
 - 📊 Cálculo da média de idade e peso cadastrados  
 - 📋 Listagem de pessoas e usuários  
-- 🔄 Suporte a **mysql-connector-python** e **PyMySQL** 
+- 🔄 Suporte a **mysql-connector-python** e **PyMySQL**  
+- 🎨 Interface gráfica com Tkinter (tema preto/cinza/amarelo)  
 
 ---
 
 ## 🛠 Tecnologias utilizadas
 - [Python 3](https://www.python.org/)
+- [Tkinter (GUI)](https://docs.python.org/3/library/tkinter.html)
 - [MySQL](https://www.mysql.com/)
 - [mysql-connector-python](https://pypi.org/project/mysql-connector-python/)
 - [PyMySQL](https://pypi.org/project/PyMySQL/)
 - [hashlib](https://docs.python.org/pt-br/3.13/library/hashlib.html)
-- [os](https://docs.python.org/pt-br/3.13/library/os.html)
   
 ---
+
 ## 📚 Contexto do projeto
 Este projeto foi desenvolvido como exercício prático para consolidar o aprendizado em:
 - Conexão do Python com MySQL
@@ -126,8 +129,7 @@ python3 -m venv venv
 pip install -r requirements.txt
 ```
 ### 5️⃣ Configurando o MySQL
-Troque o user e a password do código para os que você usa no seu MySQL
-
+Edite o arquivo db.py com o **usuário** e **senha** do seu MySQL.
 <img width="521" height="307" alt="image" src="https://github.com/user-attachments/assets/353e7297-0f25-4562-a16e-2905f66e37b1" />
 
 ### 6️⃣ Executar o software
