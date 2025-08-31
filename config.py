@@ -1,6 +1,5 @@
 from tkinter import ttk
 
-# 🎨 Configuração de tema preto/cinza/amarelo
 def configurar_tema(root):
     style = ttk.Style(root)
     style.theme_use("clam")
