@@ -27,8 +27,8 @@ except ImportError:
 def conectar():
     return mysql.connect(
         host="localhost",
-        user="fernando",        # substitua pelo seu usuário do MySQL
-        password="nandocafu",   # substitua pela sua senha do MySQL   
+        user="root",        # substitua pelo seu usuário do MySQL
+        password="senha",   # substitua pela sua senha do MySQL   
         database="academia"
     )
 
@@ -36,8 +36,8 @@ def conectar():
 def inicializa_banco():
     conexao = mysql.connect(
         host="localhost",
-        user="fernando",
-        password="nandocafu"
+        user="root",
+        password="senha"
     )
     cursor = conexao.cursor()
     cursor.execute("create database if not exists academia")
