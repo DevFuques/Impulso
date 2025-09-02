@@ -151,7 +151,8 @@ python app.py
 
 ## 📸 Demonstração
 <p align= "center">
-  <img width="329" height="330" alt="image" src="https://github.com/user-attachments/assets/aa625868-057c-4348-887b-eed7741cf33d" />  
+  <img width="420" height="353" alt="Captura de tela de 2025-08-31 14-30-56" src="https://github.com/user-attachments/assets/6b36f673-a93e-4deb-9ecf-09eb93712652" />
+  <img width="418" height="469" alt="image" src="https://github.com/user-attachments/assets/e464e436-b613-4761-bd5f-a1725aacef2b" />
 </p>
 
 ---
