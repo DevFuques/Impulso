@@ -12,16 +12,16 @@ except ImportError:
 def conectar():
     return mysql.connect(
         host="localhost",
-        user="root",        # Ajuste conforme seu usuário do MySQL
-        password="senha",   # Ajuste conforme sua senha do MySQL
+        user="fernando",        # Ajuste conforme seu usuário do MySQL
+        password="nandocafu",   # Ajuste conforme sua senha do MySQL
         database="academia"
     )
 
 def inicializa_banco():
     conexao = mysql.connect(
         host="localhost",
-        user="root",        # Ajuste conforme seu usuário do MySQL
-        password="senha"    # Ajuste conforme sua senha do MySQL
+        user="fernando",        # Ajuste conforme seu usuário do MySQL
+        password="nandocafu"    # Ajuste conforme sua senha do MySQL
     )
     cursor = conexao.cursor()
     cursor.execute("CREATE DATABASE IF NOT EXISTS academia")
@@ -32,7 +32,12 @@ def inicializa_banco():
             id INT AUTO_INCREMENT PRIMARY KEY,
             nome VARCHAR(255),
             idade INT,
-            peso FLOAT
+            peso FLOAT,
+            cep VARCHAR(10),
+            logradouro VARCHAR(255),
+            bairro VARCHAR(255),
+            cidade VARCHAR(100),
+            estado VARCHAR(2)
         )
     """)
 
