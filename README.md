@@ -9,13 +9,15 @@ Criado para praticar conceitos de banco de dados, CRUD, autenticação segura co
 ---
 
 ## ✨ Funcionalidades
-- 🏗️ Criação automática do banco e tabelas  
-- 👤 Cadastro de usuários (admin/usuário) e pessoas  
-- 🔑 Login seguro com hash SHA-256  
-- 📊 Cálculo da média de idade e peso cadastrados  
-- 📋 Listagem de pessoas e usuários  
-- 🔄 Suporte a **mysql-connector-python** e **PyMySQL**  
-- 🎨 Interface gráfica com Tkinter (tema preto/cinza/amarelo)  
+- 🏗️ Criação automática do banco e tabelas
+- 👤 Cadastro de usuários (admin/usuário) e pessoas
+- 🔑 Login seguro com hash SHA-256
+- 📊 Cálculo da média de idade e peso cadastrados
+- 📋 Listagem de pessoas e usuários
+- 🗑️ Deleção e edição de registros
+- 🔄 Suporte a mysql-connector-python e PyMySQL
+- 🎨 Interface gráfica com Tkinter (tema preto/cinza/amarelo)
+- 🔒 Garantia de existência de usuário admin na primeira execução
 
 ---
 
@@ -48,7 +50,8 @@ Inspirado pelo desafio e com um pouco de pesquisa, criei este programa adicionan
   - **Usuário comum** → pode apenas gerenciar pessoas  
 - CRUD completo de **usuários** e **pessoas**  
 - Cadastro de pessoas (nome, idade, peso)  
-- Listagem e cálculo de médias  
+- Listagem e cálculo de médias
+- API ViaCEP
 
 ---
 
@@ -63,7 +66,12 @@ Inspirado pelo desafio e com um pouco de pesquisa, criei este programa adicionan
 - id (int, PK, auto_increment)  
 - nome (varchar)  
 - idade (int)  
-- peso (float)  
+- peso (float)
+- cep (varchar)
+- logradouro (varchar)
+- bairro (varchar)
+- cidade (varchar)
+- estado (varchar)
 
 ---
 
@@ -100,7 +108,6 @@ Caso não tenha o Python instalado, siga o guia oficial de acordo com o seu sist
 sudo apt update
 sudo apt install python3 python3-pip -y
 ```
-
 ---
 
 ## ⚙️ Como executar
@@ -108,6 +115,8 @@ sudo apt install python3 python3-pip -y
 ### 1️⃣ Clonar o repositório
 ```bash
 git clone https://github.com/DevFuques/Impulso.git
+```
+```bash
 cd Impulso
 ```
 ### 2️⃣ Criar um ambiente virtual
@@ -141,10 +150,10 @@ Ou
 python app.py
 ```
 
-💡 **Nota:** na primeira execução, o sistema cria um usuário admin padrão.  
+💡 **Nota:** na primeira execução, o sistema cria um usuário admin padrão, caso ele já exista sera informado.  
 
 <p align="center">
-  <img width="467" height="119" src="https://github.com/user-attachments/assets/f50fe770-8f86-4fcf-87b0-ae713d31f6d0" alt="Usuário padrão">
+  <img width="274" height="66" alt="image" src="https://github.com/user-attachments/assets/534fd2c4-e6d2-458b-842d-9f281e27df16" />
 </p>
 
 ---
@@ -152,8 +161,25 @@ python app.py
 ## 📸 Demonstração
 <p align= "center">
   <img width="420" height="353" alt="Captura de tela de 2025-08-31 14-30-56" src="https://github.com/user-attachments/assets/6b36f673-a93e-4deb-9ecf-09eb93712652" />
-  <img width="418" height="469" alt="image" src="https://github.com/user-attachments/assets/e464e436-b613-4761-bd5f-a1725aacef2b" />
+  <img width="418" height="420" alt="image" src="https://github.com/user-attachments/assets/485e5eec-3c05-4543-978b-502d135e9546" />
 </p>
+
+---
+
+## 📄 Documentação de infraestrutura e integração/API
+### 🖥️ Requisitos de Infraestrutura
+
+- Hardware mínimo recomendado:
+  - CPU: 2 núcleos
+  - RAM: 4 GB
+  - Armazenamento: 200 MB livres
+  - Sistema Operacional: Windows 10+, Linux (Ubuntu/Debian 20.04+), macOS 10.15+
+
+- Software necessário:
+  - Python 3.10 ou superior
+  - MySQL 8+ ou MariaDB
+  - pip para instalar dependências
+  - Bibliotecas Python: mysql-connector-python, PyMySQL, hashlib, tkinter
 
 ---
 
