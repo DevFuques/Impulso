@@ -181,6 +181,15 @@ python app.py
   - pip para instalar dependências
   - Bibliotecas Python: mysql-connector-python, PyMySQL, hashlib, tkinter
 
+### 🌐 Integração com API externa
+
+O sistema utiliza a API ViaCEP para buscar endereços automaticamente a partir do CEP informado.
+
+- Como funciona:
+ 1. O usuário digita o CEP no formulário de cadastro de pessoas.
+ 2. O sistema faz uma requisição HTTP para a API ViaCEP utilizando urllib.request.
+ 3. Os dados retornados (logradouro, bairro, cidade, estado) são preenchidos automaticamente nos campos do formulário.
+
 ---
 
 ## 📄 Licença
