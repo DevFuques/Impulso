@@ -3,6 +3,8 @@
 </p>
 
 # Impulso — *Impulsionando sua gestão*
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+
 Um sistema de **gestão com interface gráfica (Tkinter)** integrado ao **MySQL**.  
 Criado para praticar conceitos de banco de dados, CRUD, autenticação segura com hash SHA-256 e interface desktop moderna em Python.  
 
